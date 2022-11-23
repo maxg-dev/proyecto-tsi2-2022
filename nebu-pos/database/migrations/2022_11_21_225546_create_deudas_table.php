@@ -16,12 +16,8 @@ return new class extends Migration
         Schema::create('deudas', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('total');
-            $table->string('cliente_id',9);
             $table->softDeletes();
             $table->timestamps();
-
-            //relaciones
-            $table->foreignId('cliente_id')->constrained();
         });
     }
 
