@@ -18,8 +18,8 @@ return new class extends Migration
             $table->dateTime('fecha');
             
             //relaciones
-            $table->foreignId('cliente_id')->constrained();
-            $table->foreignId('usuario_id')->constrained();
+            // $table->foreignId('cliente_id')->constrained();
+            // $table->foreignId('usuario_id')->constrained();
 
             $table->softDeletes();
             $table->timestamps();
