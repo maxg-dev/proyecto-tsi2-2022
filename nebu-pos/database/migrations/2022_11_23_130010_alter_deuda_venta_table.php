@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ajustes', function (Blueprint $table) {
-            $table->id();
-            $table->tinyInteger('tipo_ajuste');
-            $table->dateTime('fecha');
-            $table->unsignedInteger('cantidad');
-            $table->string('descripcion');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('deuda_venta', function (Blueprint $table) {
+            $table->foreign('deuda_id')->references('id')->on('deudas');
+            $table->foreign('venta_id')->references('id')->on('ventas');
         });
     }
 
@@ -31,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ajustes');
+        Schema::table('deuda_venta', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -22,10 +22,6 @@ return new class extends Migration
             //otros campos
             $table->unsignedInteger('precio_venta');
 
-            // //relaciones
-            // $table->foreign('deuda_id')->references('id')->on('deuda');
-            // $table->foreign('venta_id')->references('id')->on('ventas');
-
             $table->softDeletes();
             $table->timestamps();
         });

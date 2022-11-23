@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ajustes', function (Blueprint $table) {
-            $table->id();
-            $table->tinyInteger('tipo_ajuste');
-            $table->dateTime('fecha');
-            $table->unsignedInteger('cantidad');
-            $table->string('descripcion');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('productos', function (Blueprint $table) {
+            $table->foreignId('producto_categoria_id')->constrained();
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ajustes');
+        Schema::table('productos', function (Blueprint $table) {
+            //
+        });
     }
 };
